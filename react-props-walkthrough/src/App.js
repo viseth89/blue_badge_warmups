@@ -2,11 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
+import View from './components/View'
+
 function App() {
   // Creating the state needed
-  const [name, setName] = useState()
-  const [age, setAge] = useState()
-  const [hobbies, setHobbies] = useState()
+  const [name, setName] = useState("Austin")
+  const [age, setAge] = useState(25)
+  const [hobbies, setHobbies] = useState("Skating")
 
   function updateName(e){
     setName(e.target.value);
@@ -15,12 +17,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h3>     {name } </h3>
-      <form>
-        <label>Name:</label>
-        <input onChange={(e) => updateName(e)}></input>
+      {/* View */}
 
-      </form>
+      <View name = {name} age={age} hobbies={hobbies} />
+      {/* Input */}
+
       </header>
     </div>
   );

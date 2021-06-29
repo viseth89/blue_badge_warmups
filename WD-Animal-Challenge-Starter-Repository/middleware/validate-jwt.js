@@ -26,7 +26,16 @@ const validateJWT = async(req, res, nest) => {
                 }
             })
             console.log("foundUser-->", founderUser)
-            
+
+            if (foundUser){
+                req.user = foundUser;
+                next();
+            } else {
+                res.status(400).send({message: "Not Authorized"})
+            }
+
+        } else {
+            res.status(401).send({ message: "Invalid Token"})
         }
     }
 }
