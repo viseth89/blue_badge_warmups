@@ -7,11 +7,19 @@ const ApiForm = (props) => {
   const API_URL = "";
   useEffect(() => {
     if (choice) {
-      fetch(API_URL + "species")
+        let endpoint = choice == "species" ? "species" : "locations"
+      fetch(API_URL + endpoint)
         .then((res) => res.json())
         .then((json) => console.log(json));
     }
   }, [choice]);
+
+
+
+  useEffect(() => {
+      console.log(data.map(l => l.terrain))
+      console.log(data.map(s => s.name))
+  }, [data])
 
   return (
     <form>
