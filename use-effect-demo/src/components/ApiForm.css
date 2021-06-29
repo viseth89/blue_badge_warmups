@@ -1,0 +1,14 @@
+form {
+    background-color: white;
+    color: #282c34;
+    padding:20px;
+}
+
+form div {
+    margin: 5px;
+
+}
+
+label {
+    margin-left: 5px;
+}

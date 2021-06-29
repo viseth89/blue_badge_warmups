@@ -1,30 +1,53 @@
-import { Form, Input } from 'reactstrap';
-import {useState} from 'react'
+import { useEffect, useState } from "react";
+import "./ApiForm.css";
 
 const ApiForm = (props) => {
-    const [choice, setChoice] = useState("")
+  const [choice, setChoice] = useState("");
+
+  const API_URL = "";
+  useEffect(() => {
+    if (choice) {
+      fetch(API_URL + "species")
+        .then((res) => res.json())
+        .then((json) => console.log(json));
+    }
+  }, [choice]);
 
   return (
-    <Form>
-        <label for='query'>Pick an Api Query:</label>
-        <select name="query" id="query">
-            <option value="species">Species</option>
-            <option value="terrain">Terrain</option>
-        </select>
-        <label for="species">Species:</label>
-        <select name="species" id="cars">
+    <form>
+      <p>{choice}</p>
+      <label htmlfor="query">Pick an Api Query:</label>
+      <select
+        onChange={(e) => {
+          setChoice(e.target.value);
+        }}
+        name="query"
+        id="query"
+      >
+        <option value="species">Species</option>
+        <option value="terrain">Terrain</option>
+      </select>
+      {choice == "terrain" ? (
+        <>
+          <label htmlfor="species">Species:</label>
+          <select name="species" id="cars">
             <option value="mammal">Mammal</option>
             <option value="deer">deer</option>
             <option value="spirit">spirit</option>
-        </select>
-        <label for="terrain">Terrain:</label>
-        <select name="terrain" id="cars">
+          </select>
+        </>
+      ) : (
+        <>
+          <label htmlfor="terrain">Terrain:</label>
+          <select name="terrain" id="cars">
             <option value="mountain">Mountain</option>
             <option value="hill">Hill</option>
             <option value="plain">Plain</option>
-        </select>
-    </Form>
+          </select>
+        </>
+      )}
+    </form>
   );
-}
+};
 
 export default ApiForm;
