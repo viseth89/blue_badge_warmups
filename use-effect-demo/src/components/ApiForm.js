@@ -16,10 +16,17 @@ const ApiForm = (props) => {
 
 
 
-  useEffect(() => {
-      console.log(data.map(l => l.terrain))
-      console.log(data.map(s => s.name))
-  }, [data])
+useEffect(() => {
+    if(choice ==="terrain") {
+        let filteredData = data.filter(l => l.terrain != "TODO")
+        let terrainNames = filteredData.map(l => l.terrain)
+        let uniqTerrains = new Set(terrainNames)
+        console.log(uniqTerrains)
+
+    } else console.log(data.map(s => s.name))
+}, [data])
+
+const [options, setOptions] = useState([])
 
   return (
     <form>
