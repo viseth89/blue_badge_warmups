@@ -16,3 +16,7 @@ let solve = (num) => {
 
 console.log(solve(10) == 23)
 console.log(solve(100))
+
+
+// Problem 2
+

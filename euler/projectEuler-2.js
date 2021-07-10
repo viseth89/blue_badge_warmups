@@ -2,22 +2,25 @@
 Fibonacci
 */
 
-const solve = () => {
-    x = 0
-    y = 1
-    z; 
+const solve = (n) => {
+    let x = 0
+    let y = 1
+    let z; 
     // Z exists - temp digit
-    
-    tmp={}
+
+    tmp=[]
 
     while(tmp.length < n){
+        z = x+y
+        x=y
+        y=z
 
-        tmp.push(x+y)
+        tmp.push(y)
     }
 
-    return[]
+    return tmp
 
 }
 
 
-console.log(solve() ==[1,2,3,5,8,13,21,34,55,89])
+console.log(solve(10))
