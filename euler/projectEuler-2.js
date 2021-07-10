@@ -18,7 +18,13 @@ const solve = () => {
         tmp.push(y)
     }
 
-    return tmp
+    return tmp.reduce((acc, val) =>{
+        if (val % 2 == 0){
+            acc += val
+        }
+
+        return acc
+    }, 0)
 
 }
 
