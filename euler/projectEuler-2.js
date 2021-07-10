@@ -2,7 +2,7 @@
 Fibonacci
 */
 
-const solve = (n) => {
+const solve = () => {
     let x = 0
     let y = 1
     let z; 
@@ -10,7 +10,7 @@ const solve = (n) => {
 
     tmp=[]
 
-    while(tmp.length < n){
+    while(tmp.length < 4_000_001){
         z = x+y
         x=y
         y=z
