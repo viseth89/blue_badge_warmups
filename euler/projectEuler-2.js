@@ -3,11 +3,16 @@ Fibonacci
 */
 
 const solve = () => {
-
+    x = 0
+    y = 1
+    z; 
+    // Z exists - temp digit
+    
     tmp={}
 
     while(tmp.length < n){
-        
+
+        tmp.push(x+y)
     }
 
     return[]
